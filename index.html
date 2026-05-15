@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"/>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/styles/header.css">
-  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/home.css">
 </head>
 
 <body>
@@ -61,11 +61,11 @@
 </main>
 
 <!-- JS FILES -->
-<script src="/scripts/header.js"></script>
+<script src="scripts/header.js"></script>
 
 <script>
   // LOAD HEADER
-  fetch('/components/header.html')
+  fetch('components/header.html')
     .then(res => res.text())
     .then(html => {
       document.getElementById('header').innerHTML = html;
