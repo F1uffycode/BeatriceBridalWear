@@ -67,8 +67,9 @@ a {
 
 .hero__button {
   display: inline-flex;
-  padding: 10px 10px;
-  background: rgba(66, 66, 66, 0.521);
+  padding: 15px 15px;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.2);
   border-radius: 15px;
   font-weight: bold;
   font-size: clamp(0.5rem, 4vw, 1.7rem);
@@ -76,6 +77,7 @@ a {
 
 .hero__arrow {
   transition: transform 0.3s ease;
+  margin-left: 0.7rem;
 }
 
 /* движение стрелки при наведении */
@@ -93,7 +95,6 @@ a {
   background-color: #fdeaea;
 -webkit-box-shadow: 0px -20px 29px -5px #fdeaea93; 
 box-shadow: 0px -20px 29px -5px #fdeaeab0;
-  
 } 
 
 .welcome__text {
@@ -134,7 +135,8 @@ box-shadow: 0px -20px 29px -5px #fdeaeab0;
   gap: 20px;
   font-size: 1.5rem;
   padding: 10px 20px;
-  background: rgba(66, 66, 66, 0.521);
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.2);
   border-radius: 15px;
 }
 
