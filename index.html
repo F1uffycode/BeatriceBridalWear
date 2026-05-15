@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Home</title>
+
+  <!-- REMIXICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+
+<!-- HEADER (сюда вставляется через fetch) -->
+<div id="header"></div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- VIDEO BACKGROUND -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="/img/main-video.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero__section">
+    <div class="hero__content">
+      <div class="hero__text">
+        <h1 class="hero__title">Beatrice Bridal Wear</h1>
+          <p class="hero__subtitle">
+            Discover the epitome of elegance with our exclusive bridal collection.
+          </p>
+          <a href="#" class="hero__button">Explore Now
+            <i class="ri-arrow-right-line"></i>
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="welcome__section">
+      <div class="welcome__text">
+        <h2 class="welcome__title">Welcome to the world of elegance and beauty</h2>
+        <h2 class="welcome__logo">Beatrice Bridal</h2>
+          <p class="welcome__subtitle">
+            We are delighted to welcome you to our space, where dreams of the perfect wedding dress come true.
+            <br>
+            <!-- <hr> -->
+            For over 25 years, our brand has been creating bridal
+            gowns and shaping trends on the global wedding market.
+          </p>
+      </div>
+  </section>
+</main>
+
+<!-- JS FILES -->
+<script src="/scripts/header.js"></script>
+
+<script>
+  // LOAD HEADER
+  fetch('/components/header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header').innerHTML = html;
+
+      // INIT HEADER AFTER INSERT
+      if (typeof initHeader === 'function') {
+        initHeader();
+      }
+    });
+</script>
+
+</body>
+</html>

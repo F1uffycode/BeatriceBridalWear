@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us</title>
+
+  <!-- REMIXICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles/header.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- JS -->
+  <script src="/scripts/header.js"></script>
+
+  <!-- HEADER JS -->
+  <script>
+    fetch('/components/header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header').innerHTML = html;
+
+        initHeader();
+      });
+  </script>
+
+</body>
+</html>

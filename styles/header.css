@@ -1,0 +1,401 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: black;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100dvh;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+/* HEADER */
+.main__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  background: rgba(0,0,0,.15);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.nav__logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* BURGER */
+.nav__toggle {
+  position: relative;
+  width: 34px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+.nav__toggle span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: white;
+  border-radius: 10px;
+  transition: .35s ease;
+}
+
+.nav__toggle span:nth-child(1) { top: 0; }
+.nav__toggle span:nth-child(2) { top: 10px; }
+.nav__toggle span:nth-child(3) { top: 20px; }
+
+/* active state */
+.nav__toggle.active span:nth-child(1) {
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.nav__toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle.active span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+/* OVERLAY */
+.menu__overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 70px;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: .4s ease;
+  z-index: 999;
+}
+
+.menu__overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* MENU */
+.mobile__menu {
+  width: 90%;
+  max-width: 380px;
+  padding: 20px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.35),
+    inset 0 1px 1px rgba(255,255,255,.12);
+  transform: translateY(-20px);
+  transition: .4s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu__overlay.active .mobile__menu {
+  transform: translateY(0);
+}
+
+/* TITLE */
+.menu__title {
+  margin-bottom: 15px;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: .7;
+}
+
+.menu__hr {
+  margin-top: 8px;
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,.12);
+}
+
+.first__hr {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* NAV LIST */
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+.nav__list a {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  transition: .25s ease;
+}
+
+.nav__list a:hover {
+  opacity: .75;
+  transform: translateY(-2px);
+}
+
+/* COLLECTIONS / DRESSES */
+.collections__wrapper {
+  overflow: hidden;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  transition: max-height .45s ease, opacity .35s ease;
+  opacity: 0;
+}
+
+.collections__wrapper.open {
+  opacity: 1;
+}
+
+.collections__wrapper li:first-child {
+  margin-top: 10px;
+}
+
+.collections__name {
+  color: rgb(197, 197, 197);
+}
+
+.collections__name a:hover {
+  color: white;
+  opacity: 1;
+}
+
+/* ARROW */
+.nav__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  font-size: 18px;
+  transition: transform .3s ease;
+}
+
+.toggle__collections.active .nav__arrow {
+  transform: rotate(180deg);
+}
+
+/* FOOTER */
+.menu__footer {
+  margin-top: 28px;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 2px;
+  opacity: .5;
+}
+}
+
+
+
+/* MOBILE SMALL */
+@media (max-width: 480px) {
+  .nav__list a {
+    font-size: 18px;
+  }
+}
+
+/* =========================================
+   DESKTOP HEADER
+========================================= */
+@media (min-width: 769px) {
+
+  /* BURGER OFF */
+  .nav__toggle {
+    display: none;
+  }
+
+  /* HEADER */
+  .main__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px 70px;
+
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.438);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  /* LOGO */
+  .nav__logo {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* DESKTOP NAV CONTAINER */
+  .menu__overlay {
+
+    /* КЛЮЧЕВОЕ */
+    all: unset;
+
+    display: flex;
+
+    align-items: center;
+
+    margin-left: auto;
+  }
+
+  /* MENU */
+  .mobile__menu {
+    all: unset;
+    display: block;
+  }
+
+  /* NAV */
+  .nav__list {
+    all: unset;
+    display: flex;
+    gap: clamp(1rem, 4vw, 3rem);
+    margin-right: 0;
+    flex-wrap: wrap;
+  }
+
+  .nav__list > li {
+    position: relative;
+    list-style: none;
+  }
+
+  .nav__list a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    transition: .3s ease;
+  }
+
+  .nav__list a:hover {
+    opacity: .7;
+  }
+
+  /* HIDE MOBILE ELEMENTS */
+  .menu__title,
+  .menu__footer {
+    display: none;
+  }
+
+  /* DROPDOWN */
+  .collections__wrapper {
+    position: absolute;
+    top: calc(100% + 35px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 240px;
+    background: rgba(0, 0, 0, 0.397);
+    padding: 20px;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    list-style: none;
+
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    transition:
+    opacity .3s ease,
+    visibility .3s ease,
+    transform .7s ease;
+
+    transform:
+    translateX(-50%)
+    translateY(10px);
+  }
+
+  .toggle__collections.active .collections__wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform:
+    translateX(-50%)
+    translateY(0);
+  }
+
+  .collections__name a {
+    font-size: 14px;
+    text-transform: none;
+    color: rgb(210,210,210);
+  }
+
+  .collections__name a:hover {
+    color: white;
+    opacity: 1;
+  }
+
+  /* ARROW */
+  .nav__arrow {
+    margin-left: 6px;
+    transition: .3s ease;
+  }
+
+  .toggle__collections:hover .nav__arrow {
+    transform: rotate(180deg);
+  }
+}
